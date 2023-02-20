@@ -27,7 +27,7 @@
 
 ### Vue CLI
 * Standard tooling for Vue.js development
- #^  * Command line interface for creating Vue apps
+   * Command line interface for creating Vue apps
    * Dev server and easy production build
    * ptional GUI for managing Vue projects
    * Integrated testing, Typescript support, ESLint & more
@@ -35,6 +35,6 @@
 ### Vue
 
 * Declarative rendering
- * {{somedata}}
+   * {{somedata}}
 * Binding images etc..
- * v-bind:something (or) :something
+   * v-bind:something (or) :something
