@@ -26,11 +26,12 @@
 - Vue 3 has the composition API which aims to address code reusability and readability in Vue 3, especially in larger applications
 
 ### Vue CLI
-* Standard tooling for Vue.js development
- * Command line interface for creating Vue apps
- * Dev server and easy production build
- * ptional GUI for managing Vue projects
- * Integrated testing, Typescript support, ESLint & more
+<ul> Standard tooling for Vue.js development 
+   <li> Command line interface for creating Vue apps</li>
+   <li> Dev server and easy production build</li>
+   <li> ptional GUI for managing Vue projects</li>
+   <li> Integrated testing, Typescript support, ESLint & more</li>
+   </ul>
 
 ### Vue
 
