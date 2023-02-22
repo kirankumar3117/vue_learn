@@ -11,32 +11,11 @@ const router=createRouter({
             name:'Home',
             component:Home
         },
-      
         {
-            path:"/brazil",
-            name:'Brazil',
-            component:()=>import("@/view/Brazil.vue")
-        },
-        {
-            path:"/hawaii",
-            name:'Hawaii',
-            component:()=>import("@/view/Hawaii.vue")
-        },
-        {
-            path:"/jamaica",
-            name:'Jamaica',
-            component:()=>import("@/view/Jamaica.vue")
-        },
-        {
-            path:"/panama",
-            name:'Panama',
-            //we can provide specific name to this panama in bundles so that accessing and debugging is easy
-            component:()=>import(/*webpackChunkName:'panama'*/"@/view/Panama.vue")
-        },
-        {
-            path:"/destination/:id",
+            path:"/destination/:id/:slug",
             name:'destination.show',  
-            component:()=>import("@/view/Destination.vue")
+            component:()=>import("@/view/Destination.vue"),
+            props:true
         }
     ],
     linkActiveClass:'travel-destination'

@@ -13,7 +13,7 @@
 
  <TheNavBar/>
   <div class="container">
-    <router-view></router-view>
+    <router-view :key="$route.params"></router-view>
   </div>
 </template>
 

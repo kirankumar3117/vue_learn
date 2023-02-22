@@ -2,7 +2,7 @@
 
 <div id="nav">
     <router-link to="/">Travel-App</router-link>
-    <router-link v-for="destination in destinations" :key="destination.id" :to="{name:'destination.show',params:{id:destination.id}}">
+    <router-link v-for="destination in destinations" :key="destination.id" :to="{name:'destination.show',params:{id:destination.id,slug:destination.slug}}">
                 {{ destination.name }}
                
             </router-link>
