@@ -6,10 +6,13 @@
         <AddTask @add-task="addTask"/>
       </div>
       <Tasks @toggle-reminder="toggleReminder" @delete-task="DeleteTask" :tasks="tasks"/>
+      <!-- <router-view></router-view> -->
+      <Footer />
     </div>
 </template>
 <script >
  import Header from "./components/Header.vue"
+ import Footer from "./components/Footer.vue"
 import Tasks from "./components/Tasks.vue"
 import AddTask from "./components/AddTask.vue"
  export default{
@@ -18,6 +21,7 @@ import AddTask from "./components/AddTask.vue"
     Header,
     Tasks,
     AddTask,
+    Footer,
   },
   data(){
     return {
