@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button{
+        width: 100px;
+        height:40px;
+    }
+</style>
+<body>
+    <div>
+        <h2>Counter : <span class="showCounterHere">00</span></h2>
+        <div>
+            <button onclick="startCounter()">start</button>
+            <button onclick="stopCounter()">stop</button>
+        </div>
+        <br/>
+        <button onclick="clearCounter()">clear</button>
+    </div>
+</body>
+</html>
+<script>
+    
+let count=0;
+let state=false;
+
+let counterShow=document.createElement('h2');
+counterShow.innerHtml=count;
+let counterSpan=document.querySelector(".showCounterHere")
+counterSpan.innerHTML=count;
+
+
+const stopCounter=()=>{
+    state=true;
+}
+
+const clearCounter=()=>{
+    count=0;
+    counterSpan.innerHTML=count;
+}
+
+let startCounter=()=>{
+    state=false
+    let time=setTimeout(() => {
+        if(state==false){
+            count=count+1
+            counterSpan.innerHTML=count;
+           startCounter()
+        }
+        else if(state==true){
+            clearTimeout(time)
+        }
+    }, 1000);
+}
+</script>
