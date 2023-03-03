@@ -26,6 +26,12 @@
     destroyed(){
       console.log("Component Destroyed App")
     },
+    beforeUnmount(){
+      console.log("Component before unmounted")
+    },
+    unmounted(){
+      console.log("component is unmounted")
+    },
     beforeRouteEnter(to,from ,next){
       console.log("Entered to app")
       next()
