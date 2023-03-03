@@ -77,6 +77,39 @@ for suppose
 
 # Mixins
 
+- When we have reusable data properties and methods for different components we can use mixins 
+
+* for suppose
+
+- A clint ask for onclick count functionality, then we implemented it.
+- again he asks for another on hover functionality, then we copy the same code from click functionality after the changes we done it .
+- again he ask for how many time card was clicked and he need to know.
+
+* so, in this all components we have **count** propery and **count method** are same 
+
+- By using mixins we can reuse them and use them in all the components without worrying 
+
+for that 
+- we need create a mixins folder 
+- and add js methods
+
+### ex:
+
+* mixins
+   * Counter.js
+      * ```export default{
+    data(){
+        return {
+            count:0
+        }
+    },
+   methods:{
+    incrementCounter(){
+        this.count += 1
+    }
+   }
+} ```
+
 
 
 
