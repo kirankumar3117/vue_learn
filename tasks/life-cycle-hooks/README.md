@@ -97,7 +97,9 @@ for that
 
 * mixins
    * Counter.js
-      * ```export default{
+     
+```
+export default{
     data(){
         return {
             count:0
@@ -108,8 +110,30 @@ for that
         this.count += 1
     }
    }
-} ```
+}
+```
 
+- Then in 
+* CounterButton.vue
+```
+     <button @click="incrementCounter">count is {{ count }}</button>
+
+     // we can directly use this just by defining mixins 
+     //example
+
+    import CounterIncrement from "@/mixins/Counter.js"
+    export default{
+        name:'CounterButton',
+        mixins:[CounterIncrement]
+    }
+```
+ - And same goes to 
+ * HoverCount.vue
+
+ ```
+     <h2 @mouseover="incrementCounter">Hover is {{ count }}</h2>
+
+ ```
 
 
 
