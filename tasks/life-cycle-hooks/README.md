@@ -9,7 +9,7 @@
 - beforeUnmount()
 - unmounted()
 
-other route hooks those who work same as beforeUnmount,unmounted.
+other route hooks those who work same as beforemount,unmounted.
   * - beforeRouteEnter()
   * - beforeRouteLeave()
  - this components contains 3 arguments
