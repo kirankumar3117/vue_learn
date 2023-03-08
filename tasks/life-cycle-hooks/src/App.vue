@@ -19,14 +19,15 @@ export default{
   mounted(){
     console.log("Component Mounted",this.check);
   },
- beforeDestroy(){
-  console.log("Component Before Destroyed App");
+ beforeUnmount() {
+  
+   console.log("Component Before Destroyed App");
  },
- destroyed(){
-  console.log("Component Destroyed App")
- }
-
-
+ unmounted() {
+  
+   console.log("Component Destroyed App")
+ },
+ 
 }
 </script>
 

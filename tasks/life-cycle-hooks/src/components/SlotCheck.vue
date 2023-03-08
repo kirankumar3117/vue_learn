@@ -7,6 +7,7 @@
     <slot name="portfolio" :linkName="linkName">
         
     </slot>
+    
 </template>
 
 <script>
