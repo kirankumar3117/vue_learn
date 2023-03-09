@@ -55,8 +55,9 @@
         document.querySelector('#one').focus()
     },
     methods:{
-      handleSubmit(){
-       
+      handleSubmit(e){
+       e.preventDefault();
+       console.log(e.target)
         let str=this.otpNo1+this.otpNo2+this.otpNo3+this.otpNo4+this.otpNo5+this.otpNo6;
          this.$emit('otp-submited',str)
         
@@ -85,7 +86,7 @@
      <!-- <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby=""  placeholder="Phone Number"> -->
    <div>
 
-       <form >
+       <form @submit="handleSubmit">
         <div class="otpForm ">
 
             <input type="text"  class="form-control" maxlength="1" name="1" id="one" v-model="otpNo1"/>

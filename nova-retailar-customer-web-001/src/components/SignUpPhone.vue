@@ -18,16 +18,16 @@
     },
    
     methods:{
-      handleSubmit(){
+      handleSubmit(e){
+        e.preventDefault();
+       
         this.$emit('submited-mobile',this.phoneNumber)
       }
     },
     updated(){
-      console.log("hello")
-      console.log(this.phoneNumber)
       if(this.otpInputEmpty){
         this.phoneNumber=''
-       console.log(this.phoneNumber)
+      
        }
     }
   }
@@ -47,10 +47,12 @@
      </svg>
 
      <p class="mt-3">Enter Customer's Phone Number</p>
+     <form @submit="handleSubmit">
+
+       <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="" v-model="phoneNumber" placeholder="Phone Number">
+       <button type="button" class="btn bgColor"  @click="handleSubmit" >Next</button>
+      </form>
    
-     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="" v-model="phoneNumber" placeholder="Phone Number">
-   
-     <button type="button" class="btn bgColor" @click="handleSubmit">Next</button>
     </div>
 
 
