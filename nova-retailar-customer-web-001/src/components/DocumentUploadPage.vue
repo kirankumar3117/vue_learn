@@ -72,6 +72,7 @@
             class="form-control"
             @change="handleClick"
             id="Passport"
+            accept="image/*"
           />
         </div>
 
@@ -105,6 +106,7 @@
             class="form-control"
             @change="handleClick"
             id="Voter's ID"
+            accept="image/*"
           />
         </div>
 
@@ -138,6 +140,7 @@
             class="form-control"
             @change="handleClick"
             id="Driving Licence"
+            accept="image/*"
           />
         </div>
 
