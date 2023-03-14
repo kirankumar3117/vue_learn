@@ -1,3 +1,16 @@
+# Plugins
+
+-  create reusable global functionality for Vue.
+- Extract Vue code into their own reusable modules.
+- Typically used to add global-level functionality.
+
+- * ## Uses 
+        * creating global components.
+        * Global directives, trensitions.
+        * Component options via mixins.
+        * Adding global properties to Vue.
+
+
 # Vue custome directives 
 - Reusable ways to customize DOM functionality.  
 
