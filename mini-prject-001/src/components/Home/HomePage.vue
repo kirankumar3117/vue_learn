@@ -24,7 +24,16 @@ export default {
     NavBar,
     DynamicImage,
     HomeCategory
-}
+},
+    props:{
+        auth:Boolean
+    },
+    beforeUpdate(){
+        console.log("beforeUpdate",this.auth)
+    },
+    updated(){
+        console.log("updated", this.auth)
+    }
 }
 </script>
 <style >

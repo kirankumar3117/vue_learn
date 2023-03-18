@@ -2,7 +2,7 @@
     <LoadingSpinner :loading="loading"/>
     <div :id="loading ? 'disable' : ''">
     <div class="container d-flex flex-row justify-content-center mt-5">
-        <form class="form" >
+        <form class="form"  @submit="getDetails">
             <LoginSignUpError text="Login" :error="error"/>
           <div class="mb-3">
             <label  class="form-label">Email address</label>
@@ -11,13 +11,13 @@
           </div>
           <div class="mb-3">
             <label  class="form-label">Password</label>
-            <input type="password" class="form-control" v-model='password'/>
+            <input type="password" class="form-control" v-model='password' required=true/>
           </div>
           <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1"  checked/>
+            <input type="checkbox" class="form-check-input" id="checkBox"  checked/>
             <label class="form-check-label" for="exampleCheck1">Remember me</label>
           </div>
-          <button type="submit" class="w-80 btn btn-primary" @click="getDetails">Submit</button>
+          <input type="submit" class="w-80 btn btn-primary" value="Submit"/>
         </form>
     </div>
   <br/>
@@ -34,6 +34,7 @@ import LoginSignUpRoute from '../ReusableComponets/LoginSignUpRoute.vue';
 import LoginSignUpError from "../ReusableComponets/LoginSignUError.vue";
 import LoadingSpinner from "../ReusableComponets/LoadingSpinner.vue"
 import router  from '@/router/index.js';
+import axios from 'axios';
 export default { 
 
 
@@ -47,49 +48,42 @@ export default {
             email:'',
             password:'',
             error:false,
-            loading:false
+            loading:false,
         }
     },
     methods:{
         async getDetails(e){
            e.preventDefault();
 
-        
-           function login() {
-  
-            sessionStorage.setItem("token", "data.token")
-         
-             }
+           this.loading=true;
 
-             login()
-        
-    
-
-           
-           if(this.emial=='' || this.password=='' || !(/^[^\s@]+@[^\s@]+\.[^\s@]+$/).test(this.email)){
-                this.error=true;
-                this.password=''
-                return
-           }
-            const res=await fetch(`http://localhost:3000/userData?email=${this.email}`);
-            const resdata=await res.json()
-            if(resdata.length==0){
-                this.error=true;
-                this.password=''
-                return
-            }
-            else{
-                if(resdata[0].password==this.password && resdata[0].email==this.email){
-                    this.loading=true;
-                    setTimeout(()=>{
-
-                        localStorage.setItem("email",JSON.stringify(this.email));
-                        this.loading=false;
-                        router.push({path:'/'})
-                    },1000)
-                    
+           try {
+            console.log("wait")
+                const response = await axios.post('https://amused-gray-zebra.cyclic.app/login', {
+                    email:this.email,
+                    password:this.password
+                });
+                const token = response.data.token;
+                // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+                let check=document.getElementById('checkBox')
+                console.log("check",check.checked)
+                if(check.checked){
+                    localStorage.setItem('authToken',token);
+                }else{
+                    sessionStorage.setItem('authToken', token);
                 }
+
+                console.log(response.data); // handle response data
+                this.loading=false;
+                router.push({path:'/'})
+            } catch (error) {
+                console.error(error); 
+                this.error=true;
+                this.password=''
+                this.loading=false;
             }
+
+            
         }
     }
  };

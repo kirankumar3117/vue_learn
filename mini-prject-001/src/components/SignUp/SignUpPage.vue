@@ -6,22 +6,22 @@
     <div :id="loading ? 'disable' : ''">
     <div class="container d-flex flex-row justify-content-center mt-5 ml-auto mr-auto" >
       
-      <form class="form" >
+      <form class="form" @submit="getDetails">
           <LoginSignUpError text="SignUp" :error="error"/>
         <div class="mb-3">
           <label  class="form-label">Email address</label>
-          <input type="email" class="form-control"  aria-describedby="emailHelp" v-model='email' placeholder="name@gmail.com"/>
+          <input type="email" class="form-control"  aria-describedby="emailHelp" v-model='email' placeholder="name@gmail.com" required="true"/>
           <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
           <label  class="form-label">Password</label>
-          <input type="password" class="form-control" v-model='password' placeholder="enter password here"/>
+          <input type="password" class="form-control" v-model='password' placeholder="enter password here" required=true/>
         </div>
         <div class="mb-3">
           <label  class="form-label">Re-enter Password</label>
-          <input type="password" class="form-control" v-model='repassword' placeholder="re-enter password here"/>
+          <input type="password" class="form-control" v-model='repassword' placeholder="re-enter password here" required="true">
         </div>
-        <button type="submit" class="btn btn-primary" @click="getDetails">Submit</button>
+        <input type="submit" class="btn btn-primary"  value="submit">
       </form>
     </div>
     <br/>
@@ -42,9 +42,8 @@ import LoginSignUpRoute from '../ReusableComponets/LoginSignUpRoute.vue';
 import LoginSignUpError from '../ReusableComponets/LoginSignUError.vue';
 import LoadingSpinner from "../ReusableComponets/LoadingSpinner.vue"
 import router  from '@/router/index.js';
-
+import axios from 'axios';
 export default {
-
 
 
 
@@ -66,49 +65,38 @@ export default {
     },
     methods:{
        async getDetails(e){
-           e.preventDefault();
-
           
 
-           
+        e.preventDefault()
 
-            if(this.email=='' || this.password=='' || this.repassword=='' || (this.password!=this.repassword) || !(/^[^\s@]+@[^\s@]+\.[^\s@]+$/).test(this.email)){
+       
 
-                this.error=true;
-                this.password=''
-                this.repassword=''
-                return 
-              }
-        
-               const res=await fetch(`http://localhost:3000/userData?email=${this.email}`);
-               const resdata=await res.json()
-               if(resdata.length===0){
-                let data={
-                'email':`${this.email}`,
-                'password':`${this.password}`,
-                }
-               
-                await fetch("http://localhost:3000/userData",{
-                    method:'POST',
-                    headers:{
-                        'Content-type':'application/json'
-                    },
-                    body:JSON.stringify(data)
-                })
-                this.loading=true
-                setTimeout(()=>{
-                  this.loading=false
+        if(this.password != this.repassword){
+            this.error=true;
+            this.password='';
+            this.repassword='';
+            return;
+        }
+
+        this.loading=true;
+        this.error=false;
+
+        try{
+          const res=await axios.post(`https://amused-gray-zebra.cyclic.app/register`,{
+            email:this.email,
+            password:this.password
+          })
+          console.log(res.data);
+                   this.loading=false;
                   router.push({ path: '/login' })
-                },1000)
-                
-               }else{
+        }catch(err){
+          console.log({message:err.message});
                     this.error=true;
                     this.password='';
                     this.repassword='';
-               }
-          
-            
-          
+                    this.loading=false;
+        }
+
             }
     }
 

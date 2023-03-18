@@ -12,6 +12,12 @@
 export default{
     props:{
         loading:Boolean
+    },
+    mounted(){
+      console.log("loading spinner mounted")
+    },
+    unmounted(){
+      console.log("login spinner unmounted")
     }
 }
 
