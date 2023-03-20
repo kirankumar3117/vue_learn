@@ -59,8 +59,7 @@ export default {
             password:'',
             repassword:'',
             error:false ,
-            loading:false,
-            api:import.meta.env.VITE_AUTH_BASE_URL
+            loading:false
         }
         
     },
@@ -83,7 +82,7 @@ export default {
         this.error=false;
 
         try{
-          const res=await axios.post(`${this.api}/register`,{
+          const res=await axios.post(`https://amused-gray-zebra.cyclic.app/register`,{
             email:this.email,
             password:this.password
           })

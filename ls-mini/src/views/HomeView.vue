@@ -1,6 +1,6 @@
 <script >
 // import HomePage from '../components/Home/HomePage.vue';
-import HomePage from '../components/SampleHomePage.vue';
+import HomePage from "@/components/SampleHomePage.vue"
 import router from "@/router/index.js";
 import axios from 'axios'
 export default{
@@ -9,19 +9,14 @@ export default{
   },
   data(){
     return{
-      auth:false,
-      
+      auth:false
     }
   },
  
     async beforeCreate(){
-     
-      const api=import.meta.env.VITE_AUTH_BASE_URL
-      
+      console.log(this.auth)
 
-      
-
-      let token=localStorage.getItem("authToken") || sessionStorage.getItem('authToken');
+      let token=localStorage.getItem("authToken");
     if(!token){
      router.push({path:'/login'})
      return
@@ -32,24 +27,20 @@ export default{
     };
     
     try {
-      const response = await axios.get(`${api}/protected`, { headers });
+      const response = await axios.get('https://amused-gray-zebra.cyclic.app/protected', { headers });
       console.log(response.data); // handle response data
      
     } catch (error) {
       console.error(error); // handle error
       router.push({path:'/login'})
     }
-    },
-
-
-     created(){
-      
     }
+   
     
 }
 
 </script>
 
 <template>
-  <HomePage :auth="auth"/>
+  <HomePage />
 </template>

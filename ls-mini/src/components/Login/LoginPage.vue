@@ -36,7 +36,6 @@ import LoadingSpinner from "../ReusableComponets/LoadingSpinner.vue"
 import router  from '@/router/index.js';
 import axios from 'axios';
 export default { 
-    
 
 
     components:{
@@ -50,7 +49,6 @@ export default {
             password:'',
             error:false,
             loading:false,
-            api:import.meta.env.VITE_AUTH_BASE_URL
         }
     },
     methods:{
@@ -61,7 +59,7 @@ export default {
 
            try {
             console.log("wait")
-                const response = await axios.post(`${this.api}/login`, {
+                const response = await axios.post('https://amused-gray-zebra.cyclic.app/login', {
                     email:this.email,
                     password:this.password
                 });
