@@ -32,7 +32,10 @@ export default{
     };
     
     try {
-      const response = await axios.get(`${api}/protected`, { headers });
+      
+        
+        const response = await axios.get(`${api}/protected`, { headers });
+     
       console.log(response.data); // handle response data
      
     } catch (error) {
@@ -43,7 +46,16 @@ export default{
 
 
      created(){
-      
+      console.log("created home page",this.auth)
+    },
+     beforeMount(){
+      console.log("beforeMount home page")
+    },
+     mounted(){
+      console.log("mounted home page")
+    },
+     beforeUpdate(){
+      console.log("beforeUpdate home page")
     }
     
 }

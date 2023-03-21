@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Fini Flight",
+      "author": "Camphor White",
+      "content": "Fini FlightTigger Warning:Suicide, Violence, Swearing It's like flying.She said as I peered down at the two dead bodies laying on the ground below me. I was one of the four who decided to jump instead. The unlucky four who didn't escape.Well? Well what? You're asking me to jump off a fucking building.Together? I ask No, you go first.What does that mean? Is she really going to chicken out? She was the on."
+    },
+    {
+      "id": 2,
+      "title": "What You Can Do With Your Book",
+      "author": " Deidra Whitt Lovegren",
+      "content": "You present me with a gift bag as if legions of angels will descend, trumpeting your thoughtfulness in remembering my [insert celebratory event here]. I’m gracious, of course. You shouldn’t have!And I mean that. You shouldn’t have. Because now you are stepping over the line. We are simply:co-workers mothers with children at the same school neighbors with dogs old-friends-from-college, or spouses-of-old-friends-from-colle"
+    },
+    {
+      "id": 3,
+      "title": "An Aye for a Legg and a Legg for an Aye",
+      "author": "  Mister X",
+      "content": "If Lucky Chances wasn't the worst singles bar in South Florida, it's only because the Board of Health had closed down the others. There were just so many hepatitis cases one county could handle at a time.Woodrow Aye arrived at happy hour promptly at 6:07 p.m., just after clocking out from the big box retailer that kept him gainfully employed, assuming wearing a blue vest and bitching about the Miami sports teams constituted work. After a few spritzes of Drakkar Noir and a drive-thru dinner at BurgerFace, Woodrow walked int"
+    }
+  ],
+  "timestamps": {
+    "time": 1679380469111,
+    "count": 4
+  },
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

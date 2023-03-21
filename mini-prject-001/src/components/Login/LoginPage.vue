@@ -3,7 +3,9 @@
     <div :id="loading ? 'disable' : ''">
     <div class="container d-flex flex-row justify-content-center mt-5">
         <form class="form"  @submit="getDetails">
-            <LoginSignUpError text="Login" :error="error"/>
+            <LoginSignUpError text="Login" :error="error">
+            
+            </LoginSignUpError>
           <div class="mb-3">
             <label  class="form-label">Email address</label>
             <input type="email" class="form-control"  aria-describedby="emailHelp" v-model='email' required=true/>
@@ -50,7 +52,8 @@ export default {
             password:'',
             error:false,
             loading:false,
-            api:import.meta.env.VITE_AUTH_BASE_URL
+            api:import.meta.env.VITE_AUTH_BASE_URL,
+         
         }
     },
     methods:{
@@ -60,7 +63,7 @@ export default {
            this.loading=true;
 
            try {
-            console.log("wait")
+           
                 const response = await axios.post(`${this.api}/login`, {
                     email:this.email,
                     password:this.password
@@ -83,6 +86,7 @@ export default {
                 this.error=true;
                 this.password=''
                 this.loading=false;
+              
             }
 
             
