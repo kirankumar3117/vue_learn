@@ -23,7 +23,6 @@
     width:45px;
     height:20px;
     border:1px solid rgb(128, 126, 126);
-    /* background-color: #0D6EFD; */
     border-radius: 7rem;
     text-align: right;
     cursor: pointer;
@@ -66,9 +65,9 @@
     align-items: center;
 }    
 .edit{
+    width:100%;
     display: flex;
     flex-direction: row;
-    width:170px;
     justify-content: space-between;
     position: relative;
     top:-200px;
@@ -91,3 +90,40 @@
 #form>div>label{
     margin-top: 10px;
 }
+#form>input{
+    margin-top: 5px;
+}
+#form>div>input{
+    margin-top: 5px;
+}
+
+/* media screen  */
+
+@media screen and (max-width:450px){
+    .container{
+        flex-direction: column;
+    }
+    .leftContainer{
+        width: 100%;
+    }
+    .info{
+        width:100%;
+        margin-top:80px;
+    }
+    
+    .nav-edit-logout{
+        display: flex;
+        flex-direction: row;
+        width:100%;
+       justify-content: space-between;
+       margin-top: -350px;
+        /* width:100%; */
+    }
+    .logoutContainer{
+        top:-200px;
+    }
+    .imageContainer{
+        position: relative;
+        top:30px;
+    }
+}   

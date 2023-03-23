@@ -9,11 +9,12 @@
                 <input type="file" accept="image/*" class="image imageFile">
             </div>
            
+            <div class="nav-edit-logout">
                 <div class="edit">
                     <div>
                         <p class="btn btn-primary edit-text" @click="edit=!edit">edit</p>
                     </div>
-                    <div :class="edit==false ? 'editToggle mt-2 bgEditFalse' : 'editToggle mt-2 bgEditTrue' "  @click="edit=!edit">
+                    <div :class="edit==false ? 'editToggle mt-2 bgEditFalse mx-3' : 'editToggle mt-2 bgEditTrue mx-3 ' "  @click="edit=!edit">
                         <div :class="edit==false ? 'toggleRoundLeft' : 'toggleRoundRight'"></div>
                     </div>
                 </div>
@@ -23,7 +24,7 @@
                         Logout
                     </button>
                 </div>
-
+            </div>
             
         </div>
         <div class="info">
