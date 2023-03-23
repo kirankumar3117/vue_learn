@@ -1,0 +1,93 @@
+
+.container{
+    display: flex;
+    width:80%;
+    margin-top: 30px;
+    flex-direction: row;
+    justify-content: space-around;
+}    
+.image{
+    width:250px;
+    height:250px;
+    border: 1px solid rgb(170, 169, 169);
+    border-radius: 50%;
+    background-color: rgb(247, 245, 245);
+}    
+.imageName{
+    position: relative;
+    left:60px;
+    top:110px;
+    color:rgb(158, 155, 155)
+}    
+.editToggle{
+    width:45px;
+    height:20px;
+    border:1px solid rgb(128, 126, 126);
+    /* background-color: #0D6EFD; */
+    border-radius: 7rem;
+    text-align: right;
+    cursor: pointer;
+}  
+.bgEditTrue{
+    background-color: green;
+}  
+.bgEditFalse{
+    background-color: red;
+}
+.toggleRoundLeft{
+    width:40%;
+    height:100%;
+    background-color: white;
+    border-radius: 50%;    
+}
+.toggleRoundRight{
+    width:40%;
+    height:100%;
+    background-color: white;
+    border-radius: 50%;
+    margin-left: 60%;
+}    
+.imageFile{
+    position: relative;
+    top:-250px;
+    opacity: 0;
+}    
+.info{
+    display: flex;
+    flex-direction: column;
+    width:50%;
+    position: relative;
+    top:20px;
+}    
+.leftContainer{
+    width:35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}    
+.edit{
+    display: flex;
+    flex-direction: row;
+    width:170px;
+    justify-content: space-between;
+    position: relative;
+    top:-200px;
+}    
+.edit-text{
+    width:100px;
+}    
+.imageContainer{
+    margin-top: 50px;
+}    
+.logoutContainer{
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top:-150px;
+}
+#form>label{
+    margin-top:8px;
+}
+#form>div>label{
+    margin-top: 10px;
+}
