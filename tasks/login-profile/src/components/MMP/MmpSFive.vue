@@ -3,6 +3,8 @@
         <div class="left">
             <label for="">E-Mail : </label>
             <input type="text" class="form-control">
+            <label for="">Mobile No* : </label>
+            <input type="text" class="form-control">
             <label for="">LinkedIn : </label>
             <input type="text" class="form-control">
             <label for="">Github : </label>
