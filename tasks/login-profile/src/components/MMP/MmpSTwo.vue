@@ -28,8 +28,8 @@
     border-radius: 3rem;
 }
 .right{
-    width:800px;
+    width:650px;
     border: 1px solid black;
-    height:500px;
+    height:400px;
 }
 </style>
