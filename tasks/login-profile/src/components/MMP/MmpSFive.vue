@@ -45,6 +45,6 @@
     height:2px;
     background-color: rgb(194, 193, 193);
     margin-left: 15%;
-    margin-top:30px;
+    margin-top:80px;
 }
 </style>
