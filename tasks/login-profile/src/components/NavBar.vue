@@ -63,7 +63,7 @@ export default{
     cursor: pointer;
 }
 .img{
-    width:200px;
+    width:150px;
     margin-left: 50px;
 }
 .col{
