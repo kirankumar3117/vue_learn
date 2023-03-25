@@ -28,7 +28,7 @@
     font-size: 30px;
 }
 .description{
-    width:50%;
+    width:70%;
     margin-top: 10px;
     color:rgb(102, 102, 102);
 }

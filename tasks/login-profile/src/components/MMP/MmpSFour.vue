@@ -23,7 +23,7 @@
 <style scoped>
 .session2{
     display: flex;
-    width:80%;
+    width:100%;
     flex-direction: row-reverse;
     justify-content: space-around;
     margin-top:80px;

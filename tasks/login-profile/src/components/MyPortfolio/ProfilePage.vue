@@ -63,7 +63,7 @@ export default{
     font-size: 30px;
 }
 .description{
-    width:70%;
+    width:100%;
     text-align: left;
     margin-top: 20px;
     color:rgb(102, 102, 102);
