@@ -96,7 +96,24 @@
 #form>div>input{
     margin-top: 5px;
 }
-
+.taskelement{
+    border:1px solid rgb(148, 146, 146);
+    border-radius: 7px;
+    background-color: rgb(211, 208, 208);
+}
+.tasks{
+    width:80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap:8px;
+}
+.jobrolesshow{
+    width:100%;
+    max-height: 100px;
+    overflow-y: auto;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    position: relative;
+}
 /* media screen  */
 
 @media screen and (max-width:450px){

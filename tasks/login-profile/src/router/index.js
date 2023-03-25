@@ -18,6 +18,16 @@ const routes = [
     path:"/signup",
     name:'signup',
     component: ()=> import('@/views/SignUpView.vue')
+  },
+  {
+    path:"/MMP",
+    name:"makemyportfolio",
+    component:()=> import('@/views/MakeMyPortfolio.vue')
+  },
+  {
+    path:'/MyPortfolio',
+    name:'myportfolio',
+    component:()=>import('@/views/MyPortfolioView.vue')
   }
 ]
 

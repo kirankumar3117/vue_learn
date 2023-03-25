@@ -1,5 +1,6 @@
 <template>
 
+   
     <div class="container">
         <div class="leftContainer">
             <div class="imageContainer">

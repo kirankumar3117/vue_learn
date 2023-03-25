@@ -1,14 +1,56 @@
 <script >
 import ProfileUpdatePage from '@/components/Home/ProfileUpdatePage.vue';
-import protectedRoute from "@/mixins/protectedRoute"
+import NavBar from '@/components/NavBar.vue';
+import LoadingSpinner from '@/components/ReusableComponets/LoadingSpinner.vue';
+import protectedRoute from "@/mixins/protectedRoute";
+import { useProfileStore } from '@/stores/profile';
+import axios from 'axios';
 export default {
   components: {
-    ProfileUpdatePage
+    ProfileUpdatePage,
+    LoadingSpinner,
+    NavBar
+},
+  mixins:[protectedRoute],
+  setup(){
+    const profileStore=useProfileStore();
+    return{
+      profileStore
+    }
   },
-  mixins:[protectedRoute]
+  methods:{
+        async getUserData(){
+          console.log("getuserdata")
+          let token = localStorage.getItem("authToken") || sessionStorage.getItem('authToken');
+        const headers = {
+          Authorization: `Bearer ${token}`
+        };
+        try{
+          const userData=await axios.get(`${process.env.VUE_APP_API}/userdata`, { headers });
+          this.profileStore.setData(userData.data)
+        }catch(err){
+          console.log(err)
+        }
+        }
+      },
+
+    created(){
+      this.getUserData()
+    }
+
+  
 }
 </script>
 
 <template>
-  <ProfileUpdatePage/>
+  <!-- <LoadingSpinner :loading="profileStore.loading"/> -->
+  <NavBar/>
+  <!-- <ProfileUpdatePage :class="profileStore.loading ? 'disable' : ''"/> -->
 </template>
+
+<style>
+.disable{
+  pointer-events: none;
+    opacity: 0.4;
+}
+</style>

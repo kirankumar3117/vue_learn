@@ -29,7 +29,7 @@ export default{
   width:100%;
   height:80vh;
   position: absolute;
-  z-index:-1;
+  z-index:2;
   display:flex;
 }
 
