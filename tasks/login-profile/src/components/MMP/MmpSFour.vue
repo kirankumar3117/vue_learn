@@ -18,6 +18,8 @@
 
         </div>
     </div>
+
+    <div class="line"></div>
 </template>
 
 <style scoped>
@@ -46,5 +48,12 @@
     font-size: small;
     margin-left: 10px;
     color:rgb(99, 97, 97);
+}
+.line{
+    width:60%;
+    height:2px;
+    background-color: rgb(194, 193, 193);
+    margin-left: 15%;
+    margin-top:30px;
 }
 </style>

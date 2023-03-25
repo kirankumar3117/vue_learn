@@ -8,6 +8,8 @@
 
         </div>
     </div>
+
+    <div class="line"></div>
 </template>
 
 <style scoped>
@@ -31,5 +33,12 @@
     width:650px;
     border: 1px solid black;
     height:400px;
+}
+.line{
+    width:60%;
+    height:2px;
+    background-color: rgb(194, 193, 193);
+    margin-left: 15%;
+    margin-top:30px;
 }
 </style>
