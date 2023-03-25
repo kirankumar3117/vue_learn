@@ -59,7 +59,7 @@ export default{
     justify-content: space-around;
 }
 .right>div{
-    font-size: 20px;
+    font-size: 10px;
     font-weight: bold;
     cursor: pointer;
 }
