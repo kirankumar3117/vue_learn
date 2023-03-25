@@ -6,12 +6,12 @@
         </div>
         <div class="right">
             <div>
-                <router-link to="/MMP" class="col">𝓜𝓪𝓴𝓮 𝓜𝔂 𝓟𝓸𝓻𝓽𝓯𝓸𝓵𝓲𝓸</router-link>
+                <router-link to="/MMP" class="col">MMP</router-link>
             </div>
             <div>
-                <router-link to="/MyPortfolio" class="col"> 𝓜𝔂-𝓟𝓸𝓻𝓽𝓯𝓸𝓵𝓲𝓸</router-link>
+                <router-link to="/MyPortfolio" class="col">My Portfolio</router-link>
             </div>
-            <div>𝓛𝓸𝓰𝓲𝓷 𝓢𝓲𝓰𝓷𝓾𝓹</div>
+            <div>Login Signup</div>
         </div>
     </nav>
 
@@ -59,7 +59,6 @@ export default{
     justify-content: space-around;
 }
 .right>div{
-    font-size: 10px;
     font-weight: bold;
     cursor: pointer;
 }
