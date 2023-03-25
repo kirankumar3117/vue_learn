@@ -9,10 +9,6 @@
             <input type="text" class="form-control">
             <label for="">Github : </label>
             <input type="text" class="form-control">
-            <label for="">Instragram : </label>
-            <input type="text" class="form-control">
-            <label for="">Facebook : </label>
-            <input type="text"  class="form-control">
         </div>
         <div class="right">
 

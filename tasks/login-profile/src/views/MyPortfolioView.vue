@@ -6,9 +6,11 @@ import ProfilePage from '@/components/MyPortfolio/ProfilePage.vue';
     <SelfIntroPage/>
     <SkillsPage/>
     <ProjectsPage/>
+    <ContactPage/>
 </template>
 
 <script>
+import ContactPage from "@/components/MyPortfolio/ContactPage.vue";
 import ProfilePage from "@/components/MyPortfolio/ProfilePage.vue";
 import ProjectsPage from "@/components/MyPortfolio/ProjectsPage.vue";
 import SelfIntroPage from "@/components/MyPortfolio/SelfIntroPage.vue"
@@ -18,7 +20,8 @@ export default{
     ProfilePage,
     SelfIntroPage,
     SkillsPage,
-    ProjectsPage
+    ProjectsPage,
+    ContactPage
 }
 }
 </script>

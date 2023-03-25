@@ -34,7 +34,13 @@ export const useProfileStore=defineStore('profile',{
                 website:'',
                 github:''
             }
-        ]
+        ],
+        contact:{
+            email:'email',
+            mobileno:'7396192829',
+            linkedin:'lik',
+            github:'git'
+        }
 
     }),
     actions:{
