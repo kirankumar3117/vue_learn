@@ -46,7 +46,7 @@ export default{
 }
 .right{
     width:60%;
-    margin-left: -200px;
+    margin-left: -100px;
 }
 .profileLine{
     width:60%;
