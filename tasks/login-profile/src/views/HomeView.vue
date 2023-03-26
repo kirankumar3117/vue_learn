@@ -1,5 +1,5 @@
 <script >
-import ProfileUpdatePage from '@/components/Home/ProfileUpdatePage.vue';
+import HomePage from '@/components/Home/HomePage.vue';
 import NavBar from '@/components/NavBar.vue';
 import LoadingSpinner from '@/components/ReusableComponets/LoadingSpinner.vue';
 import protectedRoute from "@/mixins/protectedRoute";
@@ -7,9 +7,9 @@ import { useProfileStore } from '@/stores/profile';
 import axios from 'axios';
 export default {
   components: {
-    ProfileUpdatePage,
     LoadingSpinner,
-    NavBar
+    NavBar,
+    HomePage
 },
   mixins:[protectedRoute],
   setup(){
@@ -35,7 +35,7 @@ export default {
       },
 
     created(){
-      this.getUserData()
+      this.getUserData();
     }
 
   
@@ -45,6 +45,7 @@ export default {
 <template>
   <!-- <LoadingSpinner :loading="profileStore.loading"/> -->
   <NavBar/>
+  <HomePage/>
   <!-- <ProfileUpdatePage :class="profileStore.loading ? 'disable' : ''"/> -->
 </template>
 

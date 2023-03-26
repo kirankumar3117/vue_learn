@@ -32,5 +32,6 @@ export default{
     padding:8px 20px;
     font-weight: bold;
     margin-left:48%;
+    margin-bottom: 50px;
 }
 </style>

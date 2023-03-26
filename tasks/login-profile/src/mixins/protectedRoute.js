@@ -1,12 +1,10 @@
 
-import router from "@/router/index.js";
 import axios from 'axios';
 export default{
       methods:{
        async protectedRoute(){
-    
+        token=localStorage.getItem('authToken') || sessionStorage.getItem('authToken')
         if (!token) {
-          router.push({ path: '/login' })
           return
         }
         const headers = {
@@ -14,10 +12,13 @@ export default{
         };
         try {
           const response = await axios.get(`${process.env.VUE_APP_API}/protected`, { headers });
-          // handle response data
         } catch (error) {
-          console.error(error); // handle error
-          router.push({ path: '/login' })
+          console.error(error); 
+          if(localStorage.getItem('authToken')){
+            localStorage.removeItem('authToken')
+          }else{
+            sessionStorage.removeItem('authToken')
+          }
         }
         }
       }

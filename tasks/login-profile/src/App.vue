@@ -1,7 +1,7 @@
 
 <template>
   
-
+<PopUpComponent v-if="profileStore.popupshow"/>
 
 <router-view/>
 </template>
@@ -14,8 +14,18 @@
 </style>
 
 <script >
+import PopUpComponent from './components/PopUpComponent.vue';
+import { useProfileStore } from './stores/profile';
 export default{
-  components:{
-  }
+    components: {
+      PopUpComponent
+    } ,
+    setup(){
+      const profileStore=useProfileStore();
+      return{
+        profileStore
+      }
+    }
 }
+
 </script>

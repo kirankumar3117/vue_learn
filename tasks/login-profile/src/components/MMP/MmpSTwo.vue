@@ -1,17 +1,34 @@
+
+
 <template>
     <div class="session2">
         <div class="left">
             <label for="">Tell About Yourself : </label>
-            <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+            <textarea name="" id="" cols="30" rows="10" class="form-control" v-model="profileStore.whoiam"></textarea>
         </div>
         <div class="right">
-
+            <SelfIntroPage/>
         </div>
     </div>
 
     <div class="line"></div>
 </template>
+<script>
+import SelfIntroPage from '../MyPortfolio/SelfIntroPage.vue';
+import { useProfileStore } from '@/stores/profile';
+export default{
+    components:{
+        SelfIntroPage
+    },
+    setup(){
+        const profileStore=useProfileStore();
+        return{
+            profileStore
+        }
+    }
+}
 
+</script>
 <style scoped>
 .session2{
     display: flex;
@@ -31,8 +48,8 @@
 }
 .right{
     width:650px;
-    border: 1px solid black;
     height:400px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 .line{
     width:60%;

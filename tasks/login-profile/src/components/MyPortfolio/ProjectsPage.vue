@@ -23,6 +23,7 @@
                                 </svg>
                             </a>
                         </div>
+                        <!-- <button >remove</button> -->
                         </div>
                         <br/>
                 </div>
@@ -36,12 +37,13 @@
 <script>
 import { useProfileStore } from '@/stores/profile';
 export default{
+   
     setup(){
         const profileStore=useProfileStore();
         return {
             profileStore
         }
-    }
+    },
 }
 </script>
 
@@ -55,8 +57,8 @@ export default{
 }
 .project{
     width:300px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     margin-top: 30px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 .projecttitle{
     font-size: 20px;

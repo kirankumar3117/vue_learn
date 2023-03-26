@@ -2,25 +2,39 @@
     <div class="session2">
         <div class="left">
             <label for="">Project Title : </label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" v-model="profileStore.projectTitle">
             <label for="">Project Description : </label>
-            <textarea name="" id="" cols="30" rows="4" class="form-control"></textarea>
+            <textarea name="" id="" cols="30" rows="4" class="form-control" v-model="profileStore.projectDescription"></textarea>
             <label for="">Website Link : <span class="small-text">If any</span></label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" v-model="profileStore.projectWebsite"> 
             <label for="">Git Hub Link : <span class="small-text">If any</span></label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" v-model="profileStore.projectGithub">
             <br/>
-            <button class="btn btn-primary">add</button>
-           
-            <div>2 Projects were added</div>
+            <button class="btn btn-primary" @click="profileStore.addProject">add</button>
         </div>
         <div class="right">
-
+            <ProjectsPage />
         </div>
     </div>
 
     <div class="line"></div>
 </template>
+
+<script>
+import { useProfileStore } from '@/stores/profile';
+import ProjectsPage from '../MyPortfolio/ProjectsPage.vue';
+export default{
+    components:{
+    ProjectsPage
+},
+    setup(){
+        const profileStore=useProfileStore();
+        return{
+            profileStore
+        }
+    }
+}
+</script>
 
 <style scoped>
 .session2{
@@ -41,8 +55,9 @@
 }
 .right{
     width:650px;
-    border: 1px solid black;
     height:400px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    overflow: auto;
 }
 .small-text{
     font-size: small;

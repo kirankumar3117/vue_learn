@@ -6,18 +6,32 @@
         </div>
         <div class="right">
             <div>
-                <router-link to="/MMP" class="col">MMP</router-link>
+                <div v-if="!profileStore.token" @click="handleFailAuth('MMP')">
+                    MMP
+                </div>
+                <div v-if="profileStore.token">
+                    <router-link to="/MMP" class="col" >MMP</router-link>
+                </div>
             </div>
             <div>
-                <router-link to="/MyPortfolio" class="col">My Portfolio</router-link>
+                <div v-if="!profileStore.token" @click="handleFailAuth('PLease Login to access My Portfolio')">
+                    My Portfolio
+                </div>
+                <div v-if="profileStore.token" @click="handleFailAuth('Update Your Portfolio Atleast Once')">
+                    My Portfolio
+                </div>
+                <div v-if="profileStore.token && profileStore.updated">
+                    <router-link  to="/MyPortfolio" class="col">My Portfolio</router-link>
+                </div>
             </div>
-            <div>Login Signup</div>
+            <div @click="handleUser">{{profileStore.token ? 'Logout' : 'Login'}}</div>
         </div>
     </nav>
 
 </template> 
 
 <script>
+import protectedRoute from '@/mixins/protectedRoute';
 import router from '@/router';
 import { useProfileStore } from '@/stores/profile';
 export default{
@@ -27,12 +41,29 @@ export default{
             profileStore
         }
     },
+    mixins:[protectedRoute],
     methods:{
         handleHomeClick(){
             router.push({path:"/"})
         },
-        handlePortfolio(){
-            this.profileStore.handlePortfolio()
+        handleUser(){
+            if(this.profileStore.token){
+                if(localStorage.getItem('authToken')){
+                    localStorage.removeItem('authToken')
+                }else{
+                    sessionStorage.removeItem('authToken')
+                }
+                this.profileStore.token=''
+            }
+            else{
+
+                router.push({path:"/login"})
+            }
+        },
+        handleFailAuth(str){
+            this.profileStore.popupstatus='error'
+            this.profileStore.popupcontent= str;
+            this.profileStore.popupshow=true;
         }
     }
 }

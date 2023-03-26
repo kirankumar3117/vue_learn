@@ -1,6 +1,14 @@
 <template>
     <LoadingSpinner :loading="storeUser.loading"/>
     <div :id="storeUser.loading ? 'disable' : ''">
+      <div  class="logo">
+        <div>
+          <img src="../../assets/logo.png" alt="" class="img">
+        </div>
+        <div class="login">
+          Login
+        </div>
+      </div>
     <div class="container d-flex flex-row justify-content-center mt-5">
         <form class="form"  @submit.prevent="storeUser.login">
             <LoginSignUpError text="Login" :error="storeUser.error">
@@ -49,7 +57,9 @@ export default {
         }
     },
    
-    
+    beforeUnmount(){
+      this.storeUser.error=false
+    }
     
  };
 </script>
@@ -65,6 +75,24 @@ export default {
     pointer-events: none;
     opacity: 0.4;
 }
-
+.img{
+  width:150px;
+ 
+}
+.logo{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  top:80px;
+  gap:150px;
+  margin-left:-50px;
+}
+.login{
+  margin-top:50px;
+  font-size: 25px;
+  font-weight: bold;
+}
 
 </style>

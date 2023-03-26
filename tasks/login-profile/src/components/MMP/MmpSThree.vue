@@ -1,24 +1,44 @@
+
+import SkillsPage from '../MyPortfolio/SkillsPage.vue';
+
 <template>
     <div class="session1">
         <div class="left">
-            <label for="">Name* : <span class="noskills">You can add upto 10 skills</span></label>
+            <label for="">skill* : </label>
            
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" v-model="profileStore.skill">
             <br/>
-            <button class="btn btn-primary">add</button>
+            <button class="btn btn-primary" @click="profileStore.addSkill">add</button>
             
             <div class="skills">
-                
+                <div v-for="skill in profileStore.skills" :key="skill" class="rmskill">
+                    <div class="mx-2">{{ skill }}</div>
+                    <div class="remove" @click="profileStore.removeSkill(skill)">remove</div>
+                </div>
             </div>
         </div>
         <div class="right">
-
+            <SkillsPage/>
         </div>
     </div>
 
     <div class="line"></div>
 </template>
-
+<script>
+import { useProfileStore } from '@/stores/profile';
+import SkillsPage from "@/components/MyPortfolio/SkillsPage.vue"
+export default{
+    setup(){
+        const profileStore=useProfileStore();
+        return {
+            profileStore
+        }
+    },
+    components:{
+        SkillsPage
+    }
+}
+</script>
 <style scoped>
 .session1{
     display: flex;
@@ -36,13 +56,13 @@
 }
 .right{
     width:650px;
-    border: 1px solid black;
     height:400px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 .skills{
-    border:1px solid red;
     margin-top:10px;
     height:250px;
+    overflow: auto;
 }
 .noskills{
     font-size: small;
@@ -55,5 +75,16 @@
     background-color: rgb(194, 193, 193);
     margin-left: 15%;
     margin-top:80px;
+}
+.rmskill{
+    border:1px solid rgb(90, 89, 89);
+    border-radius: 7px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.remove{
+    margin-right: 5px;
+    cursor: pointer;
 }
 </style>

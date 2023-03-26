@@ -2,23 +2,37 @@
     <div class="session1">
         <div class="left">
             <label for="">Name* : </label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" v-model="profileStore.name">
             <label for="">Proffesion* : </label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" v-model="profileStore.profession" >
             <label for="">Description*: </label>
-            <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
+            <textarea name="" id="" cols="30" rows="3" class="form-control" v-model="profileStore.professionaldescription"></textarea>
             <label for="">Profile Image : </label>
             <input type="file" accept="image*" class="form-control">
-            <label for="">Resume : </label>
-            <input type="file" class="form-control">
+           
         </div>
         <div class="right">
-
+            <ProfilePage/>
         </div>
     </div>
 
     <div class="line"></div>
 </template>
+
+<script>
+import { useProfileStore } from '@/stores/profile';
+import ProfilePage from '../MyPortfolio/ProfilePage.vue';
+export default{
+    setup() {
+        const profileStore = useProfileStore();
+        return {
+            profileStore
+        };
+    },
+    components: { ProfilePage }
+}
+
+</script>
 
 <style scoped>
 .session1{
@@ -37,8 +51,9 @@
 }
 .right{
     width:650px;
-    border: 1px solid black;
     height:400px;
+    overflow: auto;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 .line{
     width:60%;
