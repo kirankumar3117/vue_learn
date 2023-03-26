@@ -7,7 +7,7 @@
     <MmpSFour/>
     <MmpSFive/>
     <br/>
-    <button class="update btn btn-danger">Update</button>
+    <button class="update btn btn-danger" @click="profileStore.updateData">Update</button>
 </template>
 <script>
 import MmpSOne from './MMP/MmpSOne.vue';
@@ -15,6 +15,7 @@ import MmpSTwo from './MMP/MmpSTwo.vue';
 import MmpSThree from "./MMP/MmpSThree.vue";
 import MmpSFour from "./MMP/MmpSFour.vue";
 import MmpSFive from "./MMP/MmpSFive.vue";
+import { useProfileStore } from '@/stores/profile';
 
 export default{
     
@@ -24,7 +25,16 @@ export default{
     MmpSThree,
     MmpSFour,
     MmpSFive
-}
+},
+    setup(){
+        const profileStore=useProfileStore();
+        return{
+            profileStore
+        }
+    },
+    created(){
+        
+    }
 }
 </script>
 <style>

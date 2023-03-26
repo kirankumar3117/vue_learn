@@ -6,7 +6,7 @@
         </div>
         <div class="right">
             <div>
-                <div v-if="!profileStore.token" @click="handleFailAuth('MMP')">
+                <div v-if="!profileStore.token" @click="handleFailAuth('Plese Login to edit your portfolio')">
                     MMP
                 </div>
                 <div v-if="profileStore.token">
@@ -17,11 +17,11 @@
                 <div v-if="!profileStore.token" @click="handleFailAuth('PLease Login to access My Portfolio')">
                     My Portfolio
                 </div>
-                <div v-if="profileStore.token" @click="handleFailAuth('Update Your Portfolio Atleast Once')">
+                <div v-if="profileStore.token && !profileStore.data.name" @click="handleFailAuth('Update Your Portfolio Atleast Once')">
                     My Portfolio
                 </div>
-                <div v-if="profileStore.token && profileStore.updated">
-                    <router-link  to="/MyPortfolio" class="col">My Portfolio</router-link>
+                <div v-if="profileStore.token && profileStore.data.name">
+                    <div class="col" @click="handleMyPortfolio">My portfolo</div>
                 </div>
             </div>
             <div @click="handleUser">{{profileStore.token ? 'Logout' : 'Login'}}</div>
@@ -34,6 +34,7 @@
 import protectedRoute from '@/mixins/protectedRoute';
 import router from '@/router';
 import { useProfileStore } from '@/stores/profile';
+import axios from 'axios';
 export default{
     setup(){
         const profileStore=useProfileStore();
@@ -53,7 +54,8 @@ export default{
                 }else{
                     sessionStorage.removeItem('authToken')
                 }
-                this.profileStore.token=''
+                this.profileStore.token='';
+                router.push({path:'/'})
             }
             else{
 
@@ -64,6 +66,14 @@ export default{
             this.profileStore.popupstatus='error'
             this.profileStore.popupcontent= str;
             this.profileStore.popupshow=true;
+        },
+        async handleMyPortfolio(){
+            const headers = {
+                Authorization: `Bearer ${this.profileStore.token}`
+            };
+            const id=await axios.get(`${process.env.VUE_APP_API}/getuserid`,{headers});
+           
+            router.push({path:`/MMP/${id.data}`})
         }
     }
 }

@@ -6,12 +6,12 @@ import SkillsPage from '../MyPortfolio/SkillsPage.vue';
         <div class="left">
             <label for="">skill* : </label>
            
-            <input type="text" class="form-control" v-model="profileStore.skill">
+            <input type="text" class="form-control" v-model="profileStore.skill" @keyup.enter="profileStore.addSkill">
             <br/>
             <button class="btn btn-primary" @click="profileStore.addSkill">add</button>
             
             <div class="skills">
-                <div v-for="skill in profileStore.skills" :key="skill" class="rmskill">
+                <div v-for="skill in profileStore.data.skills" :key="skill" class="rmskill">
                     <div class="mx-2">{{ skill }}</div>
                     <div class="remove" @click="profileStore.removeSkill(skill)">remove</div>
                 </div>

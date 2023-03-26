@@ -4,7 +4,7 @@
     <div class="session2">
         <div class="left">
             <label for="">Tell About Yourself : </label>
-            <textarea name="" id="" cols="30" rows="10" class="form-control" v-model="profileStore.whoiam"></textarea>
+            <textarea name="" id="" cols="30" rows="10" class="form-control" v-model="profileStore.data.whoiam"></textarea>
         </div>
         <div class="right">
             <SelfIntroPage/>

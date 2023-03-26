@@ -1,12 +1,12 @@
 <template>
     <div class="profile">
         <div class="left">
-            <img :src="profileStore.image" alt="" class="img">
+            <img :src="!profileStore.data.image ? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png' : profileStore.data.image" alt="" class="img">
         </div>
         <div class="right">
-            <div class="profession">{{profileStore.profession}}</div>
-            <div class="name">{{profileStore.name}}</div>
-            <div class="description">{{ profileStore.professionaldescription }}</div>
+            <div class="profession">{{profileStore.data.profession}}</div>
+            <div class="name">{{profileStore.data.name}}</div>
+            <div class="description">{{ profileStore.data.professionaldescription }}</div>
         </div>
     
     </div>
@@ -37,6 +37,7 @@ export default{
 }
 .img{
     width:250px;
+    height:250px;
     border-radius: 50%;
 }
 .left{
@@ -45,6 +46,7 @@ export default{
 }
 .right{
     width:60%;
+    margin-left: -200px;
 }
 .profileLine{
     width:60%;

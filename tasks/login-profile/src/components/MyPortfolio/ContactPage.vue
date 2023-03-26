@@ -12,10 +12,10 @@
                         </a>
                     </div>
                     <div>
-                        {{  profileStore.contact.email}}
+                        {{  profileStore.data.email}}
                     </div>
                 </div>
-                <div class="mobile">
+                <div class="mobile" v-show="profileStore.data.mobileno">
                     <div>
                         <a href="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone" viewBox="0 0 16 16">
@@ -25,10 +25,10 @@
                         </a>
                     </div>
                     <div>
-                        {{ profileStore.contact.mobileno }}
+                        {{ profileStore.data.mobileno }}
                     </div>
                 </div>
-                <div class="linkedin">
+                <div class="linkedin" v-show="profileStore.data.linkedin">
                     <div>
                         <a href="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
@@ -37,10 +37,10 @@
                         </a>
                     </div>
                     <div>
-                        {{ profileStore.contact.linkedin }}
+                        {{ profileStore.data.linkedin }}
                     </div>
                 </div>
-                <div class="github" v-show="profileStore.contact.github">
+                <div class="github" v-show="profileStore.data.github">
                     <div>
                         <a href="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
@@ -49,7 +49,7 @@
                         </a>
                     </div>
                     <div>
-                        {{ profileStore.contact.github }}
+                        {{ profileStore.data.github }}
                     </div>
                 </div>
             </div>

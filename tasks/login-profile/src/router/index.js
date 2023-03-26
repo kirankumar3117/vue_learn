@@ -22,10 +22,10 @@ const routes = [
   {
     path:"/MMP",
     name:"makemyportfolio",
-    component:()=> import('@/views/MakeMyPortfolio.vue')
+    component:()=> import('@/views/MakeMyPortfolio.vue'),
   },
   {
-    path:'/MyPortfolio',
+    path:'/MMP/:id',
     name:'myportfolio',
     component:()=>import('@/views/MyPortfolioView.vue')
   }

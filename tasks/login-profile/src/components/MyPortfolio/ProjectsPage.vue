@@ -4,7 +4,7 @@
         <div>
             <div class="title">Projects</div>
             <div class="projects">
-                <div class="project" v-for="project in profileStore.projects">
+                <div class="project" v-for="project in profileStore.data.projects">
                     <div class="projecttitle">{{project.title}}</div>
                     <div class="description">
                         {{ project.description }}
@@ -23,7 +23,7 @@
                                 </svg>
                             </a>
                         </div>
-                        <!-- <button >remove</button> -->
+                        <button v-if="profileStore.mmpprojectremove" @click="profileStore.removeProject(project)">remove</button>
                         </div>
                         <br/>
                 </div>

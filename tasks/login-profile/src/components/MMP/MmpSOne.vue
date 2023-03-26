@@ -2,14 +2,15 @@
     <div class="session1">
         <div class="left">
             <label for="">Name* : </label>
-            <input type="text" class="form-control" v-model="profileStore.name">
+            <input type="text" class="form-control" v-model="profileStore.data.name">
             <label for="">Proffesion* : </label>
-            <input type="text" class="form-control" v-model="profileStore.profession" >
+            <input type="text" class="form-control" v-model="profileStore.data.profession" >
             <label for="">Description*: </label>
-            <textarea name="" id="" cols="30" rows="3" class="form-control" v-model="profileStore.professionaldescription"></textarea>
+            <textarea name="" id="" cols="30" rows="3" class="form-control" v-model="profileStore.data.professionaldescription"></textarea>
             <label for="">Profile Image : </label>
-            <input type="file" accept="image*" class="form-control">
-           
+            <input type="file" accept="image/*" class="form-control" @change="handleImageUrl">
+            <br/>
+            <p>Uploade image under 50kb</p>
         </div>
         <div class="right">
             <ProfilePage/>
@@ -29,7 +30,20 @@ export default{
             profileStore
         };
     },
-    components: { ProfilePage }
+    components: { ProfilePage },
+    methods:{
+        handleImageUrl(e){
+            console.log(e.target.files[0])
+            const file=e.target.files[0];
+            const reader=new FileReader();
+            reader.addEventListener("load",()=>{
+                this.profileStore.data.image=reader.result;
+                console.log(reader.result)
+            })
+
+            reader.readAsDataURL(file);
+        }
+    }
 }
 
 </script>

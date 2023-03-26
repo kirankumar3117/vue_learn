@@ -2,6 +2,7 @@
 import HomePage from '@/components/Home/HomePage.vue';
 import NavBar from '@/components/NavBar.vue';
 import LoadingSpinner from '@/components/ReusableComponets/LoadingSpinner.vue';
+import getUserDetails from '@/mixins/getUserDetails';
 import protectedRoute from "@/mixins/protectedRoute";
 import { useProfileStore } from '@/stores/profile';
 import axios from 'axios';
@@ -18,22 +19,8 @@ export default {
       profileStore
     }
   },
-  methods:{
-        async getUserData(){
-          console.log("getuserdata")
-          let token = localStorage.getItem("authToken") || sessionStorage.getItem('authToken');
-        const headers = {
-          Authorization: `Bearer ${token}`
-        };
-        try{
-          const userData=await axios.get(`${process.env.VUE_APP_API}/userdata`, { headers });
-          this.profileStore.setData(userData.data)
-        }catch(err){
-          console.log(err)
-        }
-        }
-      },
-
+  mixins:[getUserDetails],
+ 
     created(){
       this.getUserData();
     }
@@ -43,10 +30,8 @@ export default {
 </script>
 
 <template>
-  <!-- <LoadingSpinner :loading="profileStore.loading"/> -->
   <NavBar/>
   <HomePage/>
-  <!-- <ProfileUpdatePage :class="profileStore.loading ? 'disable' : ''"/> -->
 </template>
 
 <style>

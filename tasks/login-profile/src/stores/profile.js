@@ -1,54 +1,71 @@
+import axios from "axios"
 import {defineStore} from "pinia"
 
 export const useProfileStore=defineStore('profile',{
     state:()=>({
         token:localStorage.getItem('authToken') || sessionStorage.getItem('authToken') || null,
-        email:'',
         loading:true,
-        profession:'',
-        salarysearch:false,
-        mobile:'',
-        skills:[],
-        professionaldescription:'',
-        image:'',
-        name:'',
-        whoiam:"",
-        projects:[],
-        contact:{},
-        popupcontent:'Please Login',
+        popupcontent:'',
         popupshow:false,
         popupstatus:'error',
-        updated:false,
         skill:'',
         projectTitle:'',
         projectDescription:'',
         projectWebsite:'',
-        projectGithub:''
+        projectGithub:'',
+        mmpprojectremove:false,
+        imageUrl:'',
+        data: {
+                email:'',
+                profession:'',
+                mobileno:'',
+                skills:[],
+                professionaldescription:'',
+                image:'',
+                name:'',
+                whoiam:'',
+                projects:[],
+                updated:false,
+                linkedin:'',
+                github:'',
+    
+    
+            },
+
+        
 
     }),
     actions:{
         setData(data){
             this.token=localStorage.getItem('authToken') || sessionStorage.getItem('authToken')
-           if(data.update==false){
-            this.email=data.email
-           }
-
-           this.loading=false
-           
+            this.data=data
+            this.loading=false;
         },
         addSkill(){
-            if(this.skills.includes(this.skill)){
+                if(!this.data.skills){
+                    this.data.skills=[]
+                }
+           
+                this.data.skills=[...this.data.skills,this.skill]
                 this.skill=''
-            }
-            else{
-                this.skills.push(this.skill);
-                this.skill=''
-            }
+            
         },
         removeSkill(str){
-            this.skills.splice(this.skills.indexOf(str),1)
+            this.data.skills.splice(this.data.skills.indexOf(str),1)
         },
         addProject(){
+
+            if(!this.data.projects){
+                this.data.projects=[]
+            }
+
+            if(!this.projectTitle || !this.projectDescription){
+                this.projectWebsite=''
+                this.projectGithub=''
+                this.projectTitle='';
+                this.projectDescription='';
+                return
+            }
             const obj={};
 
             obj.title=this.projectTitle;
@@ -62,12 +79,34 @@ export const useProfileStore=defineStore('profile',{
                 obj.github=this.projectGithub;
                 this.projectGithub=''
             }
-            this.projects.push(obj),
+            this.data.projects=[...this.data.projects,obj]
             this.projectTitle='';
             this.projectDescription='';
         },
-        removeProject(str){
+        removeProject(pr){
+            this.data.projects.splice(this.data.projects.indexOf(pr),1)
 
+        },
+        async updateData(){
+           const headers = {
+                Authorization: `Bearer ${this.token}`
+              };
+            this.data.updated=true;
+            const data=this.data
+            this.loading=true
+            try{
+
+                await axios.put(`${process.env.VUE_APP_API}/editdata`,data,{headers})
+                this.loading=false;
+                this.popupstatus='success';
+                this.popupcontent='Details Updated Successfully'
+                this.popupshow=true
+            }catch(err){
+                this.loading=false;
+                this.popupstatus='error';
+                this.popupcontent='Facing network issuse please try after some time'
+                this.popupshow=true
+            }
         }
     }
 })

@@ -2,21 +2,36 @@
     <div class="session1">
         <div class="left">
             <label for="">E-Mail : </label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" v-model="profileStore.data.email" disabled>
             <label for="">Mobile No* : </label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" v-model="profileStore.data.mobileno">
             <label for="">LinkedIn : </label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" v-model="profileStore.data.linkedin">
             <label for="">Github : </label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" v-model="profileStore.data.github">
         </div>
         <div class="right">
-
+            <ContactPage/>
         </div>
     </div>
 
     <div class="line"></div>
 </template>
+
+
+<script>
+import { useProfileStore } from '@/stores/profile';
+import ContactPage from '../MyPortfolio/ContactPage.vue';
+export default{
+    setup() {
+        const profileStore = useProfileStore();
+        return {
+            profileStore
+        };
+    },
+    components: { ContactPage }
+}
+</script>
 
 <style scoped>
 .session1{

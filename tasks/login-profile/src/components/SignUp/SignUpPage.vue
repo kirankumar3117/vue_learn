@@ -63,6 +63,11 @@ export default {
         storeUser
       }
      },
+     created(){
+        this.storeUser.email='',
+        this.storeUser.password='',
+        this.storeUser.repassword=''
+     }
 }
 </script>
 

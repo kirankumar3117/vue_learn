@@ -3,7 +3,7 @@
         <div>
             <div class="title">Who I Am </div>
             <div class="description">
-               {{ profileStore.whoiam }}
+               {{ profileStore.data.whoiam }}
             </div>
         </div>
     </div>
