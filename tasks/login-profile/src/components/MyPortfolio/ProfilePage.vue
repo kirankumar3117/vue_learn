@@ -12,6 +12,8 @@
     </div>
 
     <div class="profileLine"></div>
+
+    
 </template>
 
 <script>
@@ -28,7 +30,7 @@ export default{
 
 <style scoped>
 .profile{
-    width:70%;
+    width:80%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -45,15 +47,16 @@ export default{
 
 }
 .right{
-    width:60%;
+    width:55%;
     margin-left: -100px;
+    margin-top: 20px;
 }
 .profileLine{
     width:60%;
     height:2px;
     background-color: rgb(194, 193, 193);
-    margin-left: 15%;
-    margin-top:30px;
+    margin-left: 20%;
+    margin-top:100px;
 }
 .profession{
     font-weight: bold;
@@ -70,4 +73,5 @@ export default{
     margin-top: 20px;
     color:rgb(102, 102, 102);
 }
+
 </style>
