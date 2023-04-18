@@ -73,5 +73,13 @@ export default{
     margin-top: 20px;
     color:rgb(102, 102, 102);
 }
-
+@media screen and (max-width:650px){
+    .profile{
+        width:100%;
+    }
+    .img{
+        width: 100px;
+        visibility: hidden;
+    }
+}
 </style>
